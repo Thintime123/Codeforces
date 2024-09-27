@@ -40,7 +40,8 @@ int main() {
         for (int i = 0; i < n; ++i) {
             cin >> cards[i];
         }
-        cout << binarySearch(cards, k) << '\n';
+        int ans = binarySearch(cards, k);
+        cout << ans << '\n';
     }
     return 0;
 }
