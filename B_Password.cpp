@@ -47,15 +47,20 @@ void solve()
     for (int i = 0; i <= s.size(); i++)
         cout << ne[i] << ' ';
     cout << endl;
+    bool f = true;
     while (len > 0)
     {
-        if (mp[len] > 1)
+        if (f && mp[len] > 1)
         {
             ss = s.substr(0, len);
             break;
         }
-        else
-            len = ne[len];
+        else if (!f && mp[len] >= 1)
+        {
+            ss = s.substr(0, len);
+            break;
+        }
+        len = ne[len];
     }
     cout << (len > 0 ? ss : "Just a legend");
 }
