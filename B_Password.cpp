@@ -28,10 +28,10 @@ void get_ne(string s, int ne[])
         while (cn > 0 && s[i - 1] != s[cn])
             cn = ne[cn];
         if (s[i - 1] == s[cn])
-            ne[i++] = ++cn;
+            ne[i] = ++cn;
         else
-            ne[i++] = 0;
-        mp[ne[i]]++;
+            ne[i] = 0;
+        mp[ne[i++]]++;
     }
     return;
 }
