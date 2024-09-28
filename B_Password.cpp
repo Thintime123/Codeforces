@@ -42,20 +42,22 @@ void solve()
     int *ne = new int[s.size() + 2];
     get_ne(s, ne);
     string ss;
-    int ans = 0;
-    ans = ne[s.size()];
+    int len = ne[s.size()];
 
-    while (ans > 0)
+    for (int i = 0; i <= s.size(); i++)
+        cout << ne[i] << ' ';
+    cout << endl;
+    while (len > 0)
     {
-        if (mp[ans] > 1)
+        if (mp[len] > 1)
         {
-            ss = s.substr(0, ans);
+            ss = s.substr(0, len);
             break;
         }
         else
-            ans = ne[ans];
+            len = ne[len];
     }
-    cout << ss << endl;
+    cout << (len > 0 ? ss : "Just a legend");
 }
 
 signed main()
