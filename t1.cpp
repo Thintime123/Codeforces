@@ -18,7 +18,8 @@ signed main()
     vector<int> arr(3);
     for (int &c : arr)
         cin >> c;
-    cout << arr[0];
+    for (int i = 0; i < arr.size(); i++)
+        cout << arr[i] << ' ';
 
     return 0;
 }
