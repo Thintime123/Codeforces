@@ -44,9 +44,9 @@ void solve()
     string ss;
     int len = ne[s.size()];
 
-    for (int i = 0; i <= s.size(); i++)
-        cout << ne[i] << ' ';
-    cout << endl;
+    // for (int i = 0; i <= s.size(); i++)
+    //     cout << ne[i] << ' ';
+    // cout << endl;
     bool f = true;
     while (len > 0)
     {
@@ -60,6 +60,7 @@ void solve()
             ss = s.substr(0, len);
             break;
         }
+        f = false;
         len = ne[len];
     }
     cout << (len > 0 ? ss : "Just a legend");
