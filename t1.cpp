@@ -16,7 +16,7 @@ signed main()
     cin.tie(0), cout.tie(0);
 
     vector<int> arr(3);
-    for (int c : arr)
+    for (int &c : arr)
         cin >> c;
     cout << arr[0];
 
