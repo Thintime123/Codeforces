@@ -22,19 +22,19 @@ void solve()
 {
     string s;
     cin >> s;
-    vector<pii> arr(s.size() + 2); //  位置 -> 余额
+    vector<pii> arr(s.size() + 2); //  下标 -> 余额
     arr[0].first = 0, arr[0].second = 0;
     for (int i = 0; i < s.size(); i++)
     {
         arr[i + 1].first = i + 1;
-        if (s[i - 1] == '(')
+        if (s[i] == '(')
             arr[i + 1].second = arr[i].second + 1;
         else
             arr[i + 1].second = arr[i].second - 1;
     }
     for(int i=0;i<=s.size();i++)
         cout<<arr[i].first<<' '<<arr[i].second<<endl;
-        
+
     sort(all(arr), cmp);
     for (int i = 0; i < s.size(); i++)
         cout << s[arr[i].first];
