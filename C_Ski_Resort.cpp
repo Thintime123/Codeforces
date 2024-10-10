@@ -46,11 +46,8 @@ void solve()
             for (; j < n; j++)
             {
                 if(T[j]<=q) c++;
-                else{
-                    i=j;
-                    break;
-                }
             }
+            i = j;
             if (c >= k)
             {
                 ans += (c - k + 2) * (c - k + 1) / 2;
