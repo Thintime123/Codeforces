@@ -42,17 +42,12 @@ void solve()
         if (T[i] <= q)
         {
             int j = i + 1;
-            int c = 0;
+            int c = 1;
             for (; j < n; j++)
             {
-                if (T[j] > q)
-                {
-                    c = j - i;
-                    break;
-                }
-                else if (j == n - 1 && T[j] <= q)
-                {
-                    c = j - i + 1;
+                if(T[j]<=q) c++;
+                else{
+                    i=j;
                     break;
                 }
             }
