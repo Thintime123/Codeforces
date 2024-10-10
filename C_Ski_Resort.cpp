@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-int T[N];
+//int T[N];
 
 int C(int n, int m)
 {
@@ -30,7 +30,8 @@ int C(int n, int m)
 }
 void solve()
 {
-    memset(T,0,sizeof T);
+    //memset(T,0,sizeof T);
+    vector<int>T(N);
     int n, k, q;
     cin >> n >> k >> q;
     fer(i, n) cin >> T[i];
