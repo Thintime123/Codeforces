@@ -31,6 +31,6 @@ signed main()
     ios::sync_with_stdio(false);
     cin.tie(0), cout.tie(0);
 
-    cout << C(5, 2) << endl;
+    cout << C(5, 3) << endl;
     return 0;
 }
