@@ -7,6 +7,7 @@ int main(){
     st.insert(1);
     st.insert(3);
     st.insert(2);
+    st.insert(2);
     for(int c:st) cout<< c <<endl;
     return 0;
 }
