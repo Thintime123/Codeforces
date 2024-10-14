@@ -1,36 +1,52 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <vector>
 using namespace std;
 
-#define ll long long
-#define int ll
-#define pii pair<int, int>
-#define all(x) x.begin(), x.end()
-#define endl '\n'
-#define fer(i, n) for (int i = 0; i < n; ++i)
-#define ferr(i, n) for (int i = 1; i <= n; ++i)
+const int MOD = 1000000007;
+const int MAX_N = 100002;
 
-const int MOD = 1e9 + 7;
-const int N = 2e5 + 2;
+// 预处理数组，存储组合数
+vector<int> C(MAX_N + 1, 0);  // 使用一维数组存储组合数
 
-int C(int n, int m)
+void preprocess()
 {
-    double ans = 1;
-    int j = 1;
-    for (int i = m + 1; i <= n; i++)
-    {
-        ans *= (i * 1.0 / j);
-        j++;
+    // 初始化组合数数组
+    C[0] = 1;  // C[0][0] = 1
+    for (int n = 1; n <= MAX_N; ++n) {
+        // 从后往前更新组合数
+        for (int k = n; k > 0; --k) {
+            C[k] = (C[k] + C[k - 1]) % MOD;  // 错误公式
+        }
+        C[0] = 1;  // C[n][0] = 1
     }
-    for (int i = j; i <= n - m; i++)
-        ans /= i;
-    return (int)ans;
 }
-signed main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
 
-    cout << C(5, 1) << endl;
+int main()
+{
+    int t;
+    cin >> t; // 输入查询对的数量
+    vector<int> n_values(t), k_values(t);
+
+    // 输入 n 和 k 的值
+    for (int i = 0; i < t; ++i)
+    {
+        cin >> n_values[i];
+    }
+    for (int i = 0; i < t; ++i)
+    {
+        cin >> k_values[i];
+    }
+
+    // 预处理所有的 C[n][k]
+    preprocess();
+
+    // 对每个查询，输出对应的 C[n][k]
+    for (int i = 0; i < t; ++i)
+    {
+        int n = n_values[i];
+        int k = k_values[i];
+        cout << C[k] << endl; // C[n][k] 是 C[k] 的值
+    }
+
     return 0;
 }
