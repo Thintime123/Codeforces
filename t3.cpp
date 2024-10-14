@@ -22,7 +22,7 @@ int preprocess(int n, int k)
 
     C[0] = 1;
 
-    for (int i = 2; i <= n; i++)
+    for (int i = 1; i <= n; i++)
     {
         for (int j = min(k, i); j > 0; j--)
         {
