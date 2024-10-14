@@ -18,7 +18,7 @@ int preprocess(int n, int k)
     //         C[n][k] = (C[n][k - 1] + C[n - 1][k - 1]) % MOD;
     //     }
     // }
-    vector<int> C(n+2);
+    vector<int> C(k+2);
 
     C[0] = 1;
 
