@@ -11,7 +11,7 @@ using namespace std;
 #define ferr(i, n) for (int i = 1; i <= n; ++i)
 
 const int MOD = 1e9 + 7;  // 模数，一般取质数
-const int MAXN = 1e5 + 2; // 最大的n值，根据需求调整
+const int MAXN = 1e5 + 20; // 最大的n值，根据需求调整
 
 std::vector<long long> fact(MAXN + 1), invFact(MAXN + 1);
 
@@ -66,6 +66,7 @@ signed main()
 
     fer(i, t)
     {
+        if(K[i]==1) {cout<<2<<endl;continue;}
         int ans = comb(N[i], K[i] - 1, MOD) + comb(N[i] - 1, K[i] - 1, MOD);
         cout << ans << endl;
     }
