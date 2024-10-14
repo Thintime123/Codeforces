@@ -3,7 +3,7 @@
 using namespace std;
 
 const int MOD = 1000000007;
-const int MAX_N = 100002;
+const int MAX_N = 122;
 
 // 预处理数组，存储组合数
 vector<int> C(MAX_N + 1, 0);  // 使用一维数组存储组合数
