@@ -36,7 +36,7 @@ void solve()
             else
             {
                 ans = max(ans, t);
-                t -= mp[arr[l]] + 1;
+                t = t - mp[arr[l]] + 1;
                 l += mp[arr[l]];
             }
         }
