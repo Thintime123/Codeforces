@@ -41,7 +41,7 @@ void solve()
             }
         }
         else
-            ans = max(ans, t), l = i, t = 1;
+            ans = max(ans, t), l = i, t = 1, cnt = 1;
     }
     cout << max(ans, t) << endl;
 }
