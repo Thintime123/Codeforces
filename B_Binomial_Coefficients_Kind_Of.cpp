@@ -3,7 +3,7 @@
 using namespace std;
 
 #define ll long long
-#define int ll
+//#define int ll
 #define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define endl '\n'
@@ -11,7 +11,7 @@ using namespace std;
 #define ferr(i, n) for (int i = 1; i <= n; ++i)
 
 const int MOD = 1e9 + 7;   // 模数，一般取质数
-const int MAXN = 100; // 最大的n值，根据需求调整
+const int MAXN = 10001; // 最大的n值，根据需求调整
 
 std::vector<long long> fact(MAXN + 1), invFact(MAXN + 1);
 
