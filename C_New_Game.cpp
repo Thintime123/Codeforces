@@ -17,7 +17,7 @@ void solve()
 {
     int n, k;
     cin >> n >> k;
-    vector<int> arr(N);
+    vector<int> arr(n);
     fer(i, n) cin >> arr[i];
 
     sort(all(arr));
