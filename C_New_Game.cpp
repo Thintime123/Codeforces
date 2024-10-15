@@ -3,7 +3,7 @@
 using namespace std;
 
 #define ll long long
-#define int ll
+// #define int ll
 #define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define endl '\n'
@@ -18,11 +18,32 @@ void solve()
     int n, k;
     cin >> n >> k;
     vector<int> arr(n);
-    fer(i, n) cin >> arr[i];
+    map<int, int> mp;
 
+    fer(i, n) cin >> arr[i], mp[arr[i]]++;
     sort(all(arr));
-    fer(i, n) cout << arr[i] << ' ';
-    cout << endl;
+    // fer(i, n) cout << arr[i] << ' ';
+    // cout << endl;
+    int l = 0, ans = 1, t = 1, cnt = 1;
+    ferr(i, n - 1)
+    {
+        if (arr[i] == arr[i - 1])
+            t++;
+        else if (arr[i] == arr[i - 1] + 1)
+        {
+            if (cnt < k)
+                cnt++, t++;
+            else
+            {
+                ans = max(ans, t);
+                t -= mp[arr[l]] + 1;
+                l += mp[arr[l]];
+            }
+        }
+        else
+            ans = max(ans, t), l = i, t = 1;
+    }
+    cout << max(ans, t) << endl;
 }
 
 signed main()
