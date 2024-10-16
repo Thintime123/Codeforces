@@ -37,7 +37,7 @@ void solve()
 
     ll p = 0, q = n * (n - 1) / 2;
     for (int i = 1; i < n; i++)
-        p = (p + s[n] - s[i]) % MOD * arr[i] % MOD;
+        p = (p + arr[i] * (s[n] - s[i]) % MOD) % MOD;
     cout << p * fpow(q, MOD - 2, MOD) % MOD << endl;
 }
 
