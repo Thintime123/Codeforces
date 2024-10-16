@@ -19,6 +19,8 @@ void solve()
     cin >> n >> m >> k;
     vector<int> arr(n), brr(m);
     int *mp1 = new int[k + 1], *mp2 = new int[k + 1];
+    fer(i, n) cin >> arr[i];
+    fer(i, m) cin >> brr[i];
     sort(all(arr)), sort(all(brr));
 
     for (int i = 0; i < n; i++)
