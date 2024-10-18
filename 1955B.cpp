@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include<unordered_map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -28,28 +28,35 @@ void solve()
         mn = min(mn, a);
         mp[a]++;
     }
-    int a1 = mn, a2, a3;
-    if (mp[a1 + d] && mp[a1 + 2 * d])
-    {
-        a2 = a1 + d, a3 = a2 + d;
-        mp[a1]--, mp[a2]--, mp[a3]--;
-    }
-    else
-    {
-        cout << "NO" << endl;
-        return;
-    }
+    int *arr = new int[n];
     for (int i = 1; i < n; i++)
     {
-        if (mp[a1 + c] && mp[a2 + c] && mp[a3 + c])
+        if (mp[arr[0] + i * d])
         {
-            a1 += c, a2 += c, a3 += c;
-            mp[a1]--, mp[a2]--, mp[a3]--;
+            arr[i] = arr[0] + i * d;
+            mp[arr[i]]--;
         }
         else
         {
             cout << "NO" << endl;
             return;
+        }
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (mp[arr[j] + c])
+            {
+                arr[j] += c;
+                mp[arr[j]]--;
+            }
+            else
+            {
+                cout << "NO" << endl;
+                return;
+            }
         }
     }
     cout << "YES" << endl;
