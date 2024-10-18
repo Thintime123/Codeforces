@@ -29,7 +29,7 @@ void solve()
         mp[a]++;
     }
     int a1 = mn, a2, a3;
-    if (mp[a1 + d] && mp[a2 + d])
+    if (mp[a1 + d] && mp[a1 + 2 * d])
     {
         a2 = a1 + d, a3 = a2 + d;
         mp[a1]--, mp[a2]--, mp[a3]--;
