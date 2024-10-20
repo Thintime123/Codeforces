@@ -25,18 +25,23 @@ void solve()
     int s = 0; // 需要减的数
 
     int c = 0; // 开始计数的下标
-    int t = 0;
+    int t = 0; // +1 的数量
     while (c < n)
     {
-        if (ans >= k)
+        if (ans >= k){
+            if(ans == k) t--;
             break;
+        }
         s += arr[c];
         if (ans + mn * (n - c) <= k)
             ans += mn * (n - c);
         else
         {
-            int cnt = ceil((k - ans) * 1.0 / (n - c));
+            int cnt = floor((k - ans) * 1.0 / mn);
             ans += mn * cnt;
+            ans += k - ans;
+            t = c;
+            break;
         }
         bool f = false;
         for (int i = c; i < n; i++)
