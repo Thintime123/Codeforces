@@ -28,8 +28,10 @@ void solve()
     int t = 0; // +1 的数量
     while (c < n)
     {
-        if (ans >= k){
-            if(ans == k) t--;
+        if (ans >= k)
+        {
+            if (ans == k)
+                t--;
             break;
         }
         s += arr[c];
@@ -43,6 +45,12 @@ void solve()
             t = c;
             break;
         }
+        // if (ans >= k)
+        // {
+        //     if (ans == k)
+        //         t--;
+        //     break;
+        // }
         bool f = false;
         for (int i = c; i < n; i++)
         {
