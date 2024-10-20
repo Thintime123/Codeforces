@@ -45,12 +45,12 @@ void solve()
             t = c;
             break;
         }
-        // if (ans >= k)
-        // {
-        //     if (ans == k)
-        //         t--;
-        //     break;
-        // }
+        if (ans >= k)
+        {
+            if (ans == k)
+                t--;
+            break;
+        }
         bool f = false;
         for (int i = c; i < n; i++)
         {
