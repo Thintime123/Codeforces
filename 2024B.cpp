@@ -34,7 +34,7 @@ void solve()
                 t--;
             break;
         }
-        s += arr[c];
+        s += arr[c] - s;
         if (ans + mn * (n - c) <= k)
             ans += mn * (n - c);
         else
@@ -45,10 +45,9 @@ void solve()
             t = c;
             break;
         }
+
         if (ans >= k)
         {
-            if (ans == k)
-                t--;
             break;
         }
         bool f = false;
