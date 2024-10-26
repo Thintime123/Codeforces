@@ -12,12 +12,25 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
+ll fpow(ll a, ll b, ll p){
+    a %= p;
+    ll ans = 1;
+    while(b){
+        if(b & 1)
+            ans = ans * a % p;
+        b >>= 1;
+        a = a * a % p;
+    }
+    return ans;
+}
 
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    fer(i, 1, 100) cout << i * 7 << '\n';
+    int a = 5;
+    a*=a%2;
+    cout << a << endl;
 
     return 0;
 }
