@@ -17,8 +17,7 @@ signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    cout << -1 % 2 << endl;
-    cout << (-1 & 1) << endl;
+    fer(i, 1, 100) cout << i * 7 << '\n';
 
     return 0;
 }
