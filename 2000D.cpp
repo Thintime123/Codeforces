@@ -37,7 +37,7 @@ void solve()
             if (s[j] == 'L')
                 continue;
             ans += sum[j] - sum[i - 1];
-            end--;
+            end = j - 1;
             break;
         }
     }
