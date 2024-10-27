@@ -22,7 +22,7 @@ void solve() {
     int ans = 0;
     vector<int>ind; // 存每个未被匹配的左括号的下标
     fer(i, 0, n){
-        if(s[i] = '_'){
+        if(s[i] == '_'){
             if(ind.empty()) s[i] = '(';
             else s[i] = ')';
         }
