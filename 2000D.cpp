@@ -20,7 +20,10 @@ void solve()
 
     vector<int> arr(n + 1);
     vector<int> sum(n + 1);
-    fer(i, 1, n + 1) cin >> arr[i], sum[i] = sum[i - 1] + arr[i];
+    fer(i, 1, n + 1){
+        scanf("%lld", &arr[i]);
+        sum[i] = sum[i - 1] + arr[i];
+    }
     string s;
     cin >> s;
     s = " " + s;
