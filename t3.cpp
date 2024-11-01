@@ -54,7 +54,7 @@ signed main() {
     cin.tie(nullptr);
     auto start_time = clock();
 
-    int n;
+    ll n;
     n = read<ll>();
     write(n);
 
