@@ -21,7 +21,7 @@ signed main()
 
     auto t1 = std::chrono::high_resolution_clock::now();
     int a = 1;
-    fer(i, 1, 1000000000) a++, a--;
+    fer(i, 1, 1000000) a++, a--;
     auto t2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> t = t2 - t1;
     cout << t.count() << "ms\n";
