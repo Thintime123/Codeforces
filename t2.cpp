@@ -1,25 +1,31 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 #define ll long long
-// #define int ll
+//#define int ll
 #define pii pair<int, int>
-#define all(x) x.begin(), x.end()
+#define all(x) x.begin(),x.end()
 #define endl '\n'
-#define fer(i, n) for (int i = 0; i < n; ++i)
-#define ferr(i, n) for (int i = 1; i <= n; ++i)
+#define fer(i, m, n) for(int i = m; i < n; ++i)
+#define ferd(i, m, n) for(int i = m; i >= n; --i)
 
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-signed main()
-{
+
+signed main() {
     ios::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
+    cin.tie(nullptr);
+    auto start_time = clock();
 
-    map<int,int>mp;
-    cout<<mp[1];
+    string s;
+    while(getline(cin, s))
+        cout << "\"" << s << "\"," << endl; 
 
+#ifdef LOCAL
+    cout << "\nTime : ";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+#endif
     return 0;
 }
