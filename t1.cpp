@@ -20,8 +20,10 @@ signed main() {
     auto start_time = clock();
 
     auto t1 = std::chrono::high_resolution_clock::now();
-
-
+    int a = 1;
+    fer(i, 1, 1000000) a++;
+    auto t2 = std::chrono::high_resolution_clock::now();
+    cout << (t2 - t1).count() * 1000 << "ms\n";
 #ifdef LOCAL
     cout << "\nTime : ";
     cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
