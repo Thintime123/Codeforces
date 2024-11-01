@@ -59,7 +59,7 @@ signed main()
 
 #ifdef LOCAL
     cout << "\nTime : ";
-    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+    cout << (double)(clock() - start_time) * 1000 / CLOCKS_PER_SEC << "ms\n";
 #endif
     return 0;
 }
