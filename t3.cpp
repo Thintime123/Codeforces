@@ -1,53 +1,66 @@
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
+
 using namespace std;
 
-const int MOD = 1000000007;
-const int MAX_N = 1e3 + 10;
+#define ll long long
+//#define int ll
+#define pii pair<int, int>
+#define all(x) x.begin(),x.end()
+#define endl '\n'
+#define fer(i, m, n) for(int i = m; i < n; ++i)
+#define ferd(i, m, n) for(int i = m; i >= n; --i)
 
-// 预处理数组，存储组合数
-//vector<vector<int>> C(MAX_N + 1, vector<int>(MAX_N + 1));
-int C[MAX_N][MAX_N];
-void preprocess()
+template <typename T>
+inline T read()
 {
-    // 初始化组合数数组
-    for (int n = 0; n <= MAX_N; ++n)
+    T x = 0;
+    int y = 1;
+    char ch = getchar();
+    while (ch > '9' || ch < '0')
     {
-        C[n][0] = 1; // C[n][0] = 1
-        C[n][n] = 1; // C[n][n] = 1
-        for (int k = 1; k < n; ++k)
-        {
-            C[n][k] = (C[n][k - 1] + C[n - 1][k - 1]) % MOD; // 错误公式
-        }
+        if (ch == '-')
+            y = -1;
+        ch = getchar();
     }
+    while (ch >= '0' && ch <= '9')
+    {
+        x = (x << 3) + (x << 1) + (ch ^ 48);
+        ch = getchar();
+    }
+    return x * y;
 }
 
-int main()
+template <typename T>
+inline void write(T x)
 {
-    int t;
-    cin >> t; // 输入查询对的数量
-    vector<int> n_values(t), k_values(t);
-
-    // 输入 n 和 k 的值
-    for (int i = 0; i < t; ++i)
+    if (x < 0)
     {
-        cin >> n_values[i];
+        putchar('-');
+        x = -x;
     }
-    for (int i = 0; i < t; ++i)
+    if (x >= 10)
     {
-        cin >> k_values[i];
+        write(x / 10);
     }
+    putchar(x % 10 + '0');
+}
 
-    // 预处理所有的 C[n][k]
-    preprocess();
+const int MOD = 1e9 + 7;
+const int N = 2e5 + 2;
 
-    // 对每个查询，输出对应的 C[n][k]
-    for (int i = 0; i < t; ++i)
-    {
-        int n = n_values[i];
-        int k = k_values[i];
-        cout << C[n][k] << endl;
-    }
 
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    auto start_time = clock();
+
+    int n;
+    n = read<int>();
+    write(n);
+
+#ifdef LOCAL
+    cout << "\nTime : ";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+#endif
     return 0;
 }
