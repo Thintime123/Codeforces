@@ -21,7 +21,7 @@ signed main() {
 
     string s;
     while(getline(cin, s))
-        cout << "\"" << s << "\",\\\n" << endl; 
+        cout << "\"" << s << "\",\\n" << endl; 
 
 #ifdef LOCAL
     cout << "\nTime : ";
