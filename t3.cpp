@@ -55,7 +55,7 @@ signed main() {
     auto start_time = clock();
 
     int n;
-    n = read<int>();
+    n = read<ll>();
     write(n);
 
 #ifdef LOCAL
