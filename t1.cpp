@@ -1,36 +1,23 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <chrono>
 
-using namespace std;
-
-#define ll long long
-//#define int ll
-#define pii pair<int, int>
-#define all(x) x.begin(),x.end()
-#define endl '\n'
-#define fer(i, m, n) for(int i = m; i < n; ++i)
-
-const int MOD = 1e9 + 7;
-const int N = 2e5 + 2;
-
-ll fpow(ll a, ll b, ll p){
-    a %= p;
-    ll ans = 1;
-    while(b){
-        if(b & 1)
-            ans = ans * a % p;
-        b >>= 1;
-        a = a * a % p;
+// 假设要测试的函数
+int someFunction() {
+    int sum = 0;
+    for (int i = 0; i < 10000; i++) {
+        sum += i;
     }
-    return ans;
+    return sum;
 }
 
-signed main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+int main() {
+    auto start = std::chrono::high_resolution_clock::now();
+    int result = someFunction();
+    auto end = std::chrono::high_resolution_clock::now();
 
-    int a = 5;
-    a=a*a%2;
-    cout << a << endl;
+    std::chrono::duration<double, std::milli> elapsed = end - start;
+    std::cout << "Function took " << elapsed.count() << " milliseconds." << std::endl;
+    std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
