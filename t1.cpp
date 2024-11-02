@@ -17,7 +17,7 @@ signed main()
 {
     int n;
     scanf("%d", &n);
-    bool *vis = new bool[n];
+    bool *vis = new bool[n]{};
     fer(i, 1, n){
         int a;
         scanf("%d", &a);
