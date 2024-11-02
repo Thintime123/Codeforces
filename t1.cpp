@@ -16,6 +16,7 @@ const int N = 2e5 + 2;
 signed main()
 {
     int n;
+    scanf("%d", &n);
     bool *vis = new bool[n];
     fer(i, 1, n){
         int a;
