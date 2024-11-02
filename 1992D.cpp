@@ -35,7 +35,7 @@ void solve() {
         fer(j, i + 1, n + 1){
             if(s[j] == 'L'){
                 if(j - i <= m){
-                    i = j;
+                    i = j - 1;
                     break;
                 }
                 else{
@@ -45,6 +45,7 @@ void solve() {
                         if(c == 'W') cnt--;
                         if(cnt < 0){cout << "NO\n"; return;}
                     }
+                    i = j - 1;
                 }
             }
             // s[j] != 'L'
