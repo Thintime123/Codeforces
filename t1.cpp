@@ -1,53 +1,20 @@
-#include<bits/stdc++.h>
+#include <cstdio>
 
-using namespace std;
+int main() {
+    int n;
+    scanf("%d", &n);
 
-#define ll long long
-#define fer(i, m, n) for(int i = m; i < n; ++i)
+    long long total_sum = (long long)n * (n + 1) / 2; // 计算1到n的总和
+    long long sum_given = 0;
 
-template <typename T>
-inline T read()
-{
-    T x = 0;
-    int y = 1;
-    char ch = getchar();
-    while (ch > '9' || ch < '0')
-    {
-        if (ch == '-')
-            y = -1;
-        ch = getchar();
+    for (int i = 0; i < n - 1; ++i) {
+        int num;
+        scanf("%d", &num);
+        sum_given += num;
     }
-    while (ch >= '0' && ch <= '9')
-    {
-        x = (x << 3) + (x << 1) + (ch ^ 48);
-        ch = getchar();
-    }
-    return x * y;
-}
 
-template <typename T>
-inline void write(T x)
-{
-    if (x < 0)
-    {
-        putchar('-');
-        x = -x;
-    }
-    if (x >= 10)
-    {
-        write(x / 10);
-    }
-    putchar(x % 10 + '0');
-}
+    int missing_number = total_sum - sum_given;
+    printf("%d\n", missing_number);
 
-signed main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    ll n = read<ll>();
-    ll s = n * (n + 1) / 2;
-    fer(i, 1, n){
-        int a = read<int>();s -= a;
-    }
-    write(s);return 0;
+    return 0;
 }
