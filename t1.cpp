@@ -15,16 +15,18 @@ const int N = 2e5 + 2;
 
 signed main()
 {
-    ll n;
-    scanf("%lld", &n);
-    ll s = 0;
-    fer(i, 1, n)
-    {
-        ll a;
-        scanf("%lld", &a);
-        s += i - a;
+    int n;
+    bool *vis = new bool[n];
+    fer(i, 1, n){
+        int a;
+        scanf("%d", &a);
+        vis[a - 1] = true;
     }
-    s += n;
-    printf("%lld", s);
+    fer(i, 1, n + 1){
+        if(vis[i - 1] == false){
+            printf("%d", i);
+            break;
+        }
+    }
     return 0;
 }
