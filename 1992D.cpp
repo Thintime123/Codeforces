@@ -46,6 +46,7 @@ void solve() {
                         if(cnt < 0){cout << "NO\n"; return;}
                     }
                     i = j - 1;
+                    break;
                 }
             }
             // s[j] != 'L'
