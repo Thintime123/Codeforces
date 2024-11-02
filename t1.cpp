@@ -17,6 +17,7 @@ signed main()
 {
     int n;
     scanf("%d", &n);
+    n++;
     bool *vis = new bool[n / 2 + 2]{};
     fer(i, 1, n){
         int a;
