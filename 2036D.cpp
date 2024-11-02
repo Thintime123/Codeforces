@@ -51,9 +51,9 @@ void solve() {
     // }
     int cnt1 = 0, cnt2 = 0, cnt3 = 0, cnt4 =0;
     string s1 = f(1, 1);
-    string s2 = s1.substr(1) + s[0];
-    string s3 = s1.substr(2) +s[0]+s[1];
-    string s4 = s1.substr(3) + s.substr(0, 3);
+    string s2 = s1.substr(1) + s1[0];
+    string s3 = s1.substr(2) +s1[0]+s[1];
+    string s4 = s1.substr(3) + s1.substr(0, 3);
     // cout << s1 <<endl;
     // cout << s2<<endl;
     fer(i, 0, s1.size() - 3){
