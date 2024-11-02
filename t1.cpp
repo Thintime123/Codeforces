@@ -3,12 +3,7 @@
 using namespace std;
 
 #define ll long long
-//#define int ll
-#define pii pair<int, int>
-#define all(x) x.begin(),x.end()
-#define endl '\n'
 #define fer(i, m, n) for(int i = m; i < n; ++i)
-#define ferd(i, m, n) for(int i = m; i >= n; --i)
 
 template <typename T>
 inline T read()
@@ -45,10 +40,6 @@ inline void write(T x)
     putchar(x % 10 + '0');
 }
 
-const int MOD = 1e9 + 7;
-const int N = 2e5 + 2;
-
-
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -56,9 +47,7 @@ signed main() {
     ll n = read<ll>();
     ll s = n * (n + 1) / 2;
     fer(i, 1, n){
-        int a = read<int>();
-        s -= a;
+        int a = read<int>();s -= a;
     }
-    write(s);
-    return 0;
+    write(s);return 0;
 }
