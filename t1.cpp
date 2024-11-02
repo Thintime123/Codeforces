@@ -59,6 +59,6 @@ signed main() {
         int a = read<int>();
         s -= a;
     }
-    printf("%lld", s);
+    write(s);
     return 0;
 }
