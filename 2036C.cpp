@@ -44,14 +44,14 @@ void solve()
 
     while (q--)
     {
+
+        int i, v;
+        cin >> i >> v;
+        i--;
         if(s.size() < 4){
             cout << "NO" << '\n';
             continue;
         }
-        int i, v;
-        cin >> i >> v;
-        i--;
-
         if (s[i] != char(v + '0'))
         {
             s[i] = char(v + '0');
@@ -69,7 +69,7 @@ void solve()
                 // 本来有
                 int l = max(0, i - 3), r = min((int)(s.size() - 1), i + 3);
                 fer(k, l, r + 1){
-                    if(mp[i]) mp[i]--;
+                    if(mp[k]) mp[k]--;
                 }
                 cnt -= 2;
             }
