@@ -26,7 +26,7 @@ string f(int x, int y){
         s += arr[x][y];
 
         int a = x + dx[d], b = y + dy[d];
-        if(a < 1 || a > n || b < 0 || b > m){
+        if(a < 1 || a > n || b < 1 || b > m){
             d = (d + 1) % 4;
             a = x + dx[d], b = y + dy[d];
         }
