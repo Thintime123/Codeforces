@@ -17,6 +17,7 @@ int cnt;
 
 void prework(string s, map<int, int> &mp)
 {
+    if(s.size() < 4) return;
     fer(i, 0, s.size() - 4)
     {
         if (s.substr(i, 4) == "1100")
@@ -36,11 +37,17 @@ void solve()
     int q;
     cin >> q;
 
+
+    cnt = 0;
     map<int, int> mp;
     prework(s, mp);
 
     while (q--)
     {
+        if(s.size() < 4){
+            cout << "NO" << '\n';
+            continue;
+        }
         int i, v;
         cin >> i >> v;
         i--;
