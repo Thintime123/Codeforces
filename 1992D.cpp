@@ -41,9 +41,9 @@ void solve() {
                 else{
                     string ss = s.substr(i + 1, j - i);
                     for(char c : ss){
-                        if(c == 'C'){cout << "NO\n"; return;}
-                        if(c == 'W') cnt--;
-                        if(cnt < 0){cout << "NO\n"; return;}
+                        if(c == 'C') {cout << "NO\n"; return;}
+                        if(c == 'W') --cnt;
+                        if(cnt < 0) {cout << "NO\n"; return;}
                     }
                     i = j - 1;
                     break;
