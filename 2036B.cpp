@@ -25,7 +25,7 @@ void solve() {
     fer(i, 0, k){
         cin >> arr[i].first >> arr[i].second;
     }
-    sort(all(arr));
+    sort(all(arr), cmp);
     int ans = 0;
     fer(i, 0, n){
         ans += arr[i].second;
