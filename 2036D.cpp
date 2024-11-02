@@ -49,11 +49,13 @@ void solve() {
     //     fer(j, 1, m + 1) cout << arr[i][j];
     //     cout << endl;
     // }
-    int cnt1 = 0, cnt2 = 0;
+    int cnt1 = 0, cnt2 = 0, cnt3 = 0, cnt4 =0;
     string s1 = f(1, 1);
-    string s2 = f(1, m);
-    cout << s1 <<endl;
-    cout << s2<<endl;
+    string s2 = s1.substr(1) + s[0];
+    string s3 = s1.substr(2) +s[0]+s[1];
+    string s4 = s1.substr(3) + s.substr(0, 3);
+    // cout << s1 <<endl;
+    // cout << s2<<endl;
     fer(i, 0, s1.size() - 3){
         if(s1.substr(i, 4) == "1543"){
             cnt1++;
@@ -61,12 +63,27 @@ void solve() {
         }
     }
     fer(i, 0, s2.size() - 3){
-        if(s1.substr(i, 4) == "1543"){
+        if(s2.substr(i, 4) == "1543"){
             cnt2++;
             i += 4;
         }
     }
-    cout << max(cnt1, cnt2) << '\n';
+        fer(i, 0, s3.size() - 3){
+        if(s3.substr(i, 4) == "1543"){
+            cnt3++;
+            i += 4;
+        }
+    }
+        fer(i, 0, s4.size() - 3){
+        if(s4.substr(i, 4) == "1543"){
+            cnt4++;
+            i += 4;
+        }
+    }
+    cout<<s1<<endl<<s2<<endl<<s3<<endl<<s4<<endl<<endl;
+    cnt1=max(cnt1,cnt2);
+    cnt3=max(cnt3,cnt4);
+    cout<<max(cnt1,cnt3)<<endl;
 }
 
 signed main() {
