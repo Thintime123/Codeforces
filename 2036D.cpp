@@ -52,6 +52,8 @@ void solve() {
     int cnt1 = 0, cnt2 = 0;
     string s1 = f(1, 1);
     string s2 = f(1, m);
+    cout << s1 <<endl;
+    cout << s2<<endl;
     fer(i, 0, s1.size() - 3){
         if(s1.substr(i, 4) == "1543"){
             cnt1++;
