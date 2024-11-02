@@ -27,8 +27,8 @@ void solve() {
     fer(i, 0, n + 1){
         if(i == n){
             if(s[i] == 'L'){
-                if(m > 0) break;
-                else{f = false; break;}
+                if(m > 0) {cout << "YES\n"; return;}
+                else{cout << "NO\n"; return;}
             }
             
         }
@@ -63,8 +63,6 @@ void solve() {
             }
         }
     }
-    if(f) puts("YES");
-    else puts("NO");
 }
 
 signed main() {
