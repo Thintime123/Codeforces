@@ -20,7 +20,7 @@ signed main() {
 
     int n;
     scanf("%d", &n);
-    ll s = n * (n - 1) / 2;
+    ll s = n * (n + 1) / 2;
     fer(i, 1, n){
         int a;
         scanf("%d", &a);
