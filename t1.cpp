@@ -17,17 +17,19 @@ signed main()
 {
     int n;
     scanf("%d", &n);
-    bool *vis = new bool[n]{};
+    bool *vis = new bool[n / 2 + 2]{};
     fer(i, 1, n){
         int a;
         scanf("%d", &a);
-        vis[a - 1] = true;
+        if(vis[a % (n / 2)] == false) vis[a % (n / 2)] = true;
+        else vis[a % (n / 2)] = false;
     }
-    fer(i, 0, n){
-        if(vis[i] == false){
+    fer(i, 0, n / 2 + 2){
+        if(vis[i]){
             printf("%d", i + 1);
             break;
         }
     }
+    delete []vis;
     return 0;
 }
