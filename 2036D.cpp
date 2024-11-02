@@ -45,13 +45,13 @@ void solve() {
         }
     }
 
-    fer(i, 1, n + 1){
-        fer(j, 1, m + 1) cout << arr[i][j];
-        cout << endl;
-    }
+    // fer(i, 1, n + 1){
+    //     fer(j, 1, m + 1) cout << arr[i][j];
+    //     cout << endl;
+    // }
     int cnt1 = 0, cnt2 = 0;
     string s1 = f(1, 1);
-    string s2 = f(n, m);
+    string s2 = f(1, m);
     fer(i, 0, s1.size() - 3){
         if(s1.substr(i, 4) == "1543"){
             cnt1++;
