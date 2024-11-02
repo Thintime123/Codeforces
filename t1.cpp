@@ -4,16 +4,19 @@ int main() {
     int n;
     scanf("%d", &n);
 
-    long long total_sum = (long long)n * (n + 1) / 2; // 计算1到n的总和
-    long long sum_given = 0;
+    int xor_total = 0;
+    for (int i = 1; i <= n; ++i) {
+        xor_total ^= i;  // 从1到n进行异或
+    }
 
+    int xor_given = 0;
     for (int i = 0; i < n - 1; ++i) {
         int num;
         scanf("%d", &num);
-        sum_given += num;
+        xor_given ^= num;  // 将输入的数字异或
     }
 
-    int missing_number = total_sum - sum_given;
+    int missing_number = xor_total ^ xor_given;
     printf("%d\n", missing_number);
 
     return 0;
