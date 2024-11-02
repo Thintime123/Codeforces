@@ -23,9 +23,9 @@ signed main()
         scanf("%d", &a);
         vis[a - 1] = true;
     }
-    fer(i, 1, n + 1){
-        if(vis[i - 1] == false){
-            printf("%d", i);
+    fer(i, 0, n){
+        if(vis[i] == false){
+            printf("%d", i + 1);
             break;
         }
     }
