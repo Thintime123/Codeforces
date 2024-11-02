@@ -16,8 +16,8 @@ const int N = 2e5 + 2;
 
 void solve() {
     int n, m, k;
-    string s;
     cin >> n >> m >> k;
+    string s;
     cin >> s;
     s = " " + s;
 
