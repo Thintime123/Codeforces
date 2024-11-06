@@ -1,23 +1,26 @@
-#include <cstdio>
+#include<bits/stdc++.h>
 
-int main() {
-    int n;
-    scanf("%d", &n);
+using namespace std;
 
-    int xor_total = 0;
-    for (int i = 1; i <= n; ++i) {
-        xor_total ^= i;  // 从1到n进行异或
-    }
+#define ll long long
+//#define int ll
+#define pii pair<int, int>
+#define all(x) x.begin(),x.end()
+#define endl '\n'
+#define fer(i, m, n) for(int i = m; i < n; ++i)
+#define ferd(i, m, n) for(int i = m; i >= n; --i)
 
-    int xor_given = 0;
-    for (int i = 0; i < n - 1; ++i) {
-        int num;
-        scanf("%d", &num);
-        xor_given ^= num;  // 将输入的数字异或
-    }
+const int MOD = 1e9 + 7;
+const int N = 2e5 + 2;
 
-    int missing_number = xor_total ^ xor_given;
-    printf("%d\n", missing_number);
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int a;
+    cin >> a;
+    cout << 111 << endl;
 
     return 0;
 }
