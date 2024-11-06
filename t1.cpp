@@ -18,7 +18,7 @@ signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    cout << 334 << endl;
+    cout << 111 << endl;
 
     return 0;
 }
