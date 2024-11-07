@@ -16,10 +16,14 @@ const int N = 2e5 + 2;
 
 signed main() {
     ios::sync_with_stdio(false);
-    int a;
-    cin >> a;
-    cout << 111;
-    
+    cin.tie(nullptr);
+    auto start_time = clock();
 
+    cout << 2;
+
+#ifdef LOCAL
+    cout << "\nTime : ";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+#endif
     return 0;
 }
