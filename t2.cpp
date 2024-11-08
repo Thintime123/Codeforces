@@ -4,9 +4,9 @@ using namespace std;
 
 signed main() {
     ios::sync_with_stdio(false);
-    //cin.tie(nullptr);
+    cin.tie(nullptr);
 
-    //cout << 11 << endl;
+    cout << 11 << endl;
 
     return 0;
 }
