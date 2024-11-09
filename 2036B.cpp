@@ -18,7 +18,7 @@ void solve() {
     int n, k;
     cin >> n >> k;
 
-    int *arr = new int[k + 2]{};
+    int *arr = new int[max(n, k) + 2]{};
     fer(i, 0, k){
         int b, c;
         cin >> b >> c;
@@ -27,7 +27,7 @@ void solve() {
     sort(arr, arr + k, [&](int a, int b){return a > b;});
     
     int ans = 0;
-    fer(i, 0, min(n, k)) ans += arr[i];
+    fer(i, 0, n) ans += arr[i];
     cout << ans << '\n';
 }
 
