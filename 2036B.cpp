@@ -17,17 +17,19 @@ const int N = 2e5 + 2;
 void solve() {
     int n, k;
     cin >> n >> k;
+    map<int, int>mp;
 
-    int *arr = new int[max(n, k) + 2]{};
     fer(i, 0, k){
         int b, c;
         cin >> b >> c;
-        arr[b] += c;
+        mp[b] += c;
     }
-    sort(arr, arr + max(n, k) + 2, [&](int a, int b){return a > b;});
-    
+    vector<pii>arr(all(mp));
+    sort(all(arr), [&](pii a, pii b){return a.second > b.second;});
+
     int ans = 0;
-    fer(i, 0, n) ans += arr[i];
+    fer(i, 0, min((int)arr.size(), n))
+        ans += arr[i].second;
     cout << ans << '\n';
 }
 
