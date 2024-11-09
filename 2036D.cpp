@@ -13,82 +13,54 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-char arr[310][310];
-
 int dx[] = {0, 1, 0, -1};
 int dy[] = {1, 0, -1, 0};
-int n, m;
 
-string f(int x, int y){
-    int d = 0;
-    string s;
-    for(int k=0;k<n*m;k++){
-        s += arr[x][y];
-
-        int a = x + dx[d], b = y + dy[d];
-        if(a < 1 || a > n || b < 1 || b > m){
-            d = (d + 1) % 4;
-            a = x + dx[d], b = y + dy[d];
-        }
-        x = a, y = b;
+bool finds(string s){
+    fer(i, 0, s.size() - 3){
+        if(s.substr(i, 4) == "1543")
+            return true;
     }
-    return s;
+    return false;
 }
-void solve() {
-    memset(arr, '0', sizeof arr);
-    cin >> n >> m;
-    string s;
-    fer(i, 0, n){
-        cin >> s;
-        fer(j, 0, m){
-            arr[i+1][j+1] = s[j];
-        }
-    }
 
-    // fer(i, 1, n + 1){
-    //     fer(j, 1, m + 1) cout << arr[i][j];
-    //     cout << endl;
-    // }
-    int cnt1 = 0, cnt2 = 0, cnt3 = 0, cnt4 =0;
-    string s1 = f(1, 1);
-    string s2 = s1.substr(1) + s1[0];
-    string s3 = s1.substr(2) +s1[0]+s1[1];
-    string s4 = s1.substr(3) + s1.substr(0, 3);
-    // cout << s1 <<endl;
-    // cout << s2<<endl;
-    fer(i, 0, s1.size() - 3){
-        if(s1.substr(i, 4) == "1543"){
-            cnt1++;
-            i += 4;
-        }
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    
+    vector<vector<int>>arr(n, vector<int>(m));
+    fer(i, 0, n){
+        string s;
+        cin >> s;
+        fer(j, 0, s.size())
+            arr[i][j] = (int)(s[i] - '0');
     }
-    fer(i, 0, s2.size() - 3){
-        if(s2.substr(i, 4) == "1543"){
-            cnt2++;
-            i += 4;
+    while(n){
+        string s;
+        int x = 0, y = 0, d = 0;
+        fer(i, 0, 2 * (n + m - 2)){
+            s += to_string(arr[x][y]);
+            int a = x + dx[d], b = y + dy[d];
+            if(a < 0 || a >= n || b < 0 || b >= m){
+                d = (d + 1) % 4;
+                x += dx[d], y += dy[d];
+            }
         }
+        n -= 2, m -= 2;
+
+        string s1 = s.substr(1) + s[0];
+        string s2 = s1.substr(1) + s1[0];
+        string s3 = s2.substr(1) + s2[0];
+        if(finds(s) || finds(s1) || finds(s2) || finds(s3))
+            cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-        fer(i, 0, s3.size() - 3){
-        if(s3.substr(i, 4) == "1543"){
-            cnt3++;
-            i += 4;
-        }
-    }
-        fer(i, 0, s4.size() - 3){
-        if(s4.substr(i, 4) == "1543"){
-            cnt4++;
-            i += 4;
-        }
-    }
-    cout<<s1<<endl<<s2<<endl<<s3<<endl<<s4<<endl<<endl;
-    cnt1=max(cnt1,cnt2);
-    cnt3=max(cnt3,cnt4);
-    cout<<max(cnt1,cnt3)<<endl;
 }
 
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    auto start_time = clock();
 
     int T = 1;
     cin >> T;
@@ -97,5 +69,9 @@ signed main() {
         solve();
     }
 
+#ifdef LOCAL
+    cout << "\nTime : ";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+#endif
     return 0;
 }
