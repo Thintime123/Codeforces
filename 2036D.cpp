@@ -16,12 +16,13 @@ const int N = 2e5 + 2;
 int dx[] = {0, 1, 0, -1};
 int dy[] = {1, 0, -1, 0};
 
-bool finds(string s){
+int finds(string s){
+    int cnt = 0;
     fer(i, 0, s.size() - 3){
         if(s.substr(i, 4) == "1543")
-            return true;
+            cnt++;
     }
-    return false;
+    return cnt;
 }
 
 void solve() {
@@ -53,9 +54,9 @@ void solve() {
         string s1 = s.substr(1) + s[0];
         string s2 = s1.substr(1) + s1[0];
         string s3 = s2.substr(1) + s2[0];
-        if(finds(s) || finds(s1) || finds(s2) || finds(s3))
-            cout << "YES" << endl;
-        else cout << "NO" << endl;
+        int ans = 0;
+        ans = max(finds(s), max(finds(s1), max(finds(s2), finds(s3))));
+        cout << ans << '\n';
     }
 }
 
