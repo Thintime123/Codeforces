@@ -36,7 +36,7 @@ void solve() {
             arr[i][j] = (int)(s[j] - '0');
     }
     int c = 0;
-    while(n){
+    while(n && m){
         string s;
         int x = c, y = c, d = 0;
         fer(i, 0, 2 * (n + m - 2)){
@@ -44,8 +44,9 @@ void solve() {
             int a = x + dx[d], b = y + dy[d];
             if(a < 0 || a >= n || b < 0 || b >= m){
                 d = (d + 1) % 4;
-                x += dx[d], y += dy[d];
+                a = x + dx[d], b = y + dy[d];
             }
+            x = a, y = b;
         }
         n -= 2, m -= 2;
         c ++;
