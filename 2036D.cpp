@@ -35,9 +35,10 @@ void solve() {
         fer(j, 0, s.size())
             arr[i][j] = (int)(s[i] - '0');
     }
+    int c = 0;
     while(n){
         string s;
-        int x = 0, y = 0, d = 0;
+        int x = c, y = c, d = 0;
         fer(i, 0, 2 * (n + m - 2)){
             s += to_string(arr[x][y]);
             int a = x + dx[d], b = y + dy[d];
@@ -47,7 +48,7 @@ void solve() {
             }
         }
         n -= 2, m -= 2;
-
+        c ++;
         string s1 = s.substr(1) + s[0];
         string s2 = s1.substr(1) + s1[0];
         string s3 = s2.substr(1) + s2[0];
