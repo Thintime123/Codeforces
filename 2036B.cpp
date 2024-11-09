@@ -24,7 +24,7 @@ void solve() {
         cin >> b >> c;
         arr[b] += c;
     }
-    sort(arr, arr + k, [&](int a, int b){return a > b;});
+    sort(arr, arr + max(n, k) + 2, [&](int a, int b){return a > b;});
     
     int ans = 0;
     fer(i, 0, n) ans += arr[i];
