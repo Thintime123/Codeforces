@@ -37,6 +37,7 @@ void solve() {
             arr[i][j] = (int)(s[j] - '0');
     }
     int c = 0;
+    int res = 0;
     while(n && m){
         string s;
         int x = c, y = c, d = 0;
@@ -54,10 +55,10 @@ void solve() {
         string s1 = s.substr(1) + s[0];
         string s2 = s1.substr(1) + s1[0];
         string s3 = s2.substr(1) + s2[0];
-        int ans = 0;
-        ans = max(finds(s), max(finds(s1), max(finds(s2), finds(s3))));
-        cout << ans << '\n';
+
+        res += max(finds(s), max(finds(s1), max(finds(s2), finds(s3))));
     }
+    cout << res << '\n';
 }
 
 signed main() {
