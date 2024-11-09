@@ -38,6 +38,7 @@ void solve() {
     }
     int c = 0;
     int res = 0;
+    int nn = n, mm = m;
     while(n && m){
         string s;
         int x = c, y = c, d = 0;
