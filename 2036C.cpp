@@ -31,12 +31,12 @@ void solve() {
 
         int cnt1 = 0, cnt2 = 0;
         // 改变前
-        fer(i, max(0, ind - 3), min((int)s.size() - 3, ind)){
+        fer(i, max(0, ind - 3), min((int)s.size() - 3, ind + 1)){
             if(s.substr(i, 4) == "1100") cnt1++;
         }
         // 改变后
         s[ind] = char(v + '0');
-        fer(i, max(0, ind - 3), min((int)s.size() - 3, ind)){
+        fer(i, max(0, ind - 3), min((int)s.size() - 3, ind + 1)){
             if(s.substr(i, 4) == "1100") cnt2++;
         }
         cnt += cnt2 - cnt1;
