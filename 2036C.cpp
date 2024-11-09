@@ -1,112 +1,65 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
 #define ll long long
-// #define int ll
+//#define int ll
 #define pii pair<int, int>
-#define all(x) x.begin(), x.end()
+#define all(x) x.begin(),x.end()
 #define endl '\n'
-#define fer(i, m, n) for (int i = m; i < n; ++i)
-#define ferd(i, m, n) for (int i = m; i >= n; --i)
+#define fer(i, m, n) for(int i = m; i < n; ++i)
+#define ferd(i, m, n) for(int i = m; i >= n; --i)
 
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-int cnt;
 
-void prework(string s, map<int, int> &mp)
-{
-    if(s.size() < 4) return;
-    fer(i, 0, s.size() - 4)
-    {
-        if (s.substr(i, 4) == "1100")
-        {
-            cnt++;
-            mp[i]++;
-            mp[i + 1]++;
-            mp[i + 2]++;
-            mp[i + 3]++;
-        }
-    }
-}
-void solve()
-{
+void solve() {
     string s;
     cin >> s;
     int q;
     cin >> q;
+    int cnt = 0;
 
+    fer(i, 0, s.size() - 3){
+        if(s.substr(i, 4) == "1100") cnt++;
+    }
+    while(q--){
+        int ind, v;
+        cin >> ind >> v;
+        ind--;
 
-    cnt = 0;
-    map<int, int> mp;
-    prework(s, mp);
-
-    while (q--)
-    {
-
-        int i, v;
-        cin >> i >> v;
-        i--;
-        if(s.size() < 4){
-            cout << "NO" << '\n';
-            continue;
+        int cnt1 = 0, cnt2 = 0;
+        // 改变前
+        fer(i, max(0, ind - 3), min((int)s.size() - 3, ind)){
+            if(s.substr(i, 4) == "1100") cnt1++;
         }
-        if (s[i] != char(v + '0'))
-        {
-            s[i] = char(v + '0');
-            // int l = max(0, i - 3), r = min((int)(s.size() - 4), i);
-            // f1 = false;
-            // for(int j = l; j <= r; j ++){
-            //     if(s.substr(j, 4) == "1100"){
-            //         f1 = true;
-            //         break;
-            //     }
-            // }
-
-            if (mp[i])
-            {
-                // 本来有
-                int l = max(0, i - 3), r = min((int)(s.size() - 1), i + 3);
-                fer(k, l, r + 1){
-                    if(mp[k]) mp[k]--;
-                }
-                cnt -= 2;
-            }
-            else
-            {
-                // 本来没有
-                int l = max(0, i - 3), r = min((int)(s.size() - 1), i + 3);
-                if(r - l + 1 >= 4){
-                    fer(k, l, r - 2){
-                        if(s.substr(k,4)=="1100"){
-                            mp[k]++;
-                            mp[k+1]++;
-                            mp[k+2]++;
-                            mp[k+3]++;
-                            cnt++;
-                        }
-                    }
-                }
-            }
+        // 改变后
+        s[ind] = char(v + '0');
+        fer(i, max(0, ind - 3), min((int)s.size() - 3, ind)){
+            if(s.substr(i, 4) == "1100") cnt2++;
         }
-        if(cnt > 0) cout << "YES" << '\n';
+        cnt += cnt2 - cnt1;
+        if(cnt >= 1) cout << "YES" << '\n';
         else cout << "NO" << '\n';
     }
 }
 
-signed main()
-{
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    auto start_time = clock();
 
     int T = 1;
     cin >> T;
 
-    while (T--)
-    {
+    while(T--) {
         solve();
     }
 
+#ifdef LOCAL
+    cout << "\nTime : ";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+#endif
     return 0;
 }
