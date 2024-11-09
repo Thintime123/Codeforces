@@ -33,7 +33,7 @@ void solve() {
         string s;
         cin >> s;
         fer(j, 0, s.size())
-            arr[i][j] = (int)(s[i] - '0');
+            arr[i][j] = (int)(s[j] - '0');
     }
     int c = 0;
     while(n){
