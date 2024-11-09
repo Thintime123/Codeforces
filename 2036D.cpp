@@ -45,13 +45,14 @@ void solve() {
         fer(i, 0, 2 * (n + m - 2)){
             s += to_string(arr[x][y]);
             int a = x + dx[d], b = y + dy[d];
-            if(a < 0 || a >= n || b < 0 || b >= m){
+            if(a < c || a >= nn - c || b < c || b >= mm - c){
                 d = (d + 1) % 4;
                 a = x + dx[d], b = y + dy[d];
             }
             x = a, y = b;
         }
         n -= 2, m -= 2;
+
         c ++;
         string s1 = s.substr(1) + s[0];
         string s2 = s1.substr(1) + s1[0];
