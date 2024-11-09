@@ -13,29 +13,28 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-bool cmp(pii a, pii b){
-    return a.second > b.second;
-}
 
 void solve() {
     int n, k;
     cin >> n >> k;
 
-    vector<pii>arr(k);
+    int *arr = new int[k + 2]{};
     fer(i, 0, k){
-        cin >> arr[i].first >> arr[i].second;
+        int b, c;
+        cin >> b >> c;
+        arr[b] += c;
     }
-    sort(all(arr), cmp);
+    sort(arr, arr + k, [&](int a, int b){return a > b;});
+    
     int ans = 0;
-    fer(i, 0, n){
-        ans += arr[i].second;
-    }
+    fer(i, 0, n) ans += arr[i];
     cout << ans << '\n';
 }
 
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
+    auto start_time = clock();
 
     int T = 1;
     cin >> T;
@@ -44,5 +43,9 @@ signed main() {
         solve();
     }
 
+#ifdef LOCAL
+    cout << "\nTime : ";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
+#endif
     return 0;
 }
