@@ -22,7 +22,7 @@ void solve() {
         if(i & 1) cout << l++ << ' ';
         else cout << r++ << ' ';
     }
-
+    cout << '\n';
 }
 
 signed main() {
