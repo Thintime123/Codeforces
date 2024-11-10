@@ -39,6 +39,7 @@ void solve() {
         fer(j, 1, m + 1){
             if(arr[i][j] == '#'){
                 dox = i, doy = j;
+                ok = true;
                 break;
             }
         }
