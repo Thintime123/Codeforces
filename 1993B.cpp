@@ -25,7 +25,7 @@ void solve() {
         else arr.push_back(a0);
     }
 
-    int ans;
+    int ans = 0;
     sort(all(arr));
     for(auto c : arr){
         if(c < a) ans++, a += c;
