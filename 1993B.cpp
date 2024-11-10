@@ -32,12 +32,12 @@ void solve() {
     }
     int ans = 0;
     sort(all(arr));
-    for(auto c : arr){
-        if(c < a) ans++, a += c;
-        else{
-            ans += 2;
-            a += c * 2;
+    for(auto c:arr){
+        if(a < c){
+            ans = arr.size() + 1;
+            break;
         }
+        ans++, a += c;
     }
     cout << ans << '\n';
 }
