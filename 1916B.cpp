@@ -20,12 +20,11 @@ int gcd(int a, int b){
 void solve() {
     int a, b;
     cin >> a >> b;
+    if(a > b) swap(a, b);
+
     int x;
-    if(a == 1) x = b * b;
-    else if(b == 1) x = a * a;
-    else{
-        x = a / gcd(a, b) * b;
-    }
+    if(b % a == 0) x = b / a * b;
+    else b = a / gcd(a, b) * b;
     cout << x << '\n';
 }
 
