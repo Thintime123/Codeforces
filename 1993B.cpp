@@ -18,12 +18,12 @@ void solve() {
     int n;
     ll a = 1;
     cin >> n;
-    vector<int>arr;
+    vector<ll>arr;
     fer(i, 0, n){
         ll a0;
         cin >> a0;
         if(a0 & 1) a = max(a, a0);
-        else arr.push_back(int(a0));
+        else arr.push_back(a0);
     }
 
     if(arr.size() == n){
