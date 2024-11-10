@@ -21,6 +21,7 @@ void solve() {
 
     fer(i, 1, n + 1){
         cin >> arr[i];
+        arr[i] = " " + arr[i];
     }
     int upx, upy, lex, ley, dox, doy, rix, riy;
     bool ok = false;
@@ -45,7 +46,7 @@ void solve() {
         }
         if(ok) break;
     }
-    cout << upx << ' ' << upy << ' ' << dox << ' ' << doy << ' ';
+    //cout << upx << ' ' << upy << ' ' << dox << ' ' << doy << ' ';
     cout << upx + (dox - upx >> 1) << ' ' << upy << '\n';
 }
 
