@@ -24,8 +24,7 @@ void solve() {
 
     int x;
     if(b % a == 0) x = b / a * b;
-    else b = a / gcd(a, b) * b;
-    cout << "gcd = " << gcd(a, b) << ' ';
+    else x = a / gcd(a, b) * b;
     cout << x << '\n';
 }
 
