@@ -18,7 +18,7 @@ void solve() {
     int n;
     cin >> n;
     int c = (n + 1) / 2;
-    fer(i, 1, c + 1) cout << i << ' ';
+    ferd(i, c, 1) cout << i << ' ';
     fer(i, c + 1, n + 1) cout << i << ' ';
     cout << '\n';
 
