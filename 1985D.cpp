@@ -45,6 +45,7 @@ void solve() {
         }
         if(ok) break;
     }
+    cout << upy << ' ' << doy << ' ';
     cout << upx + (dox - upx >> 1) << ' ' << upy << '\n';
 }
 
