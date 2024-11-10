@@ -17,10 +17,11 @@ const int N = 2e5 + 2;
 void solve() {
     int n;
     cin >> n;
-    int c = (n + 1) / 2;
-    ferd(i, c, 1) cout << i << ' ';
-    fer(i, c + 1, n + 1) cout << i << ' ';
-    cout << '\n';
+    int l = 1, r = n;
+    fer(i, 1, n + 1){
+        if(i & 1) cout << l++ << ' ';
+        else cout << r++ << ' ';
+    }
 
 }
 
