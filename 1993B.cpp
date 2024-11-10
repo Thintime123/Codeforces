@@ -15,14 +15,15 @@ const int N = 2e5 + 2;
 
 
 void solve() {
-    int n, a = 1;
+    int n;
+    ll a = 1;
     cin >> n;
     vector<int>arr;
     fer(i, 0, n){
-        int a0;
+        ll a0;
         cin >> a0;
         if(a0 & 1) a = max(a, a0);
-        else arr.push_back(a0);
+        else arr.push_back(int(a0));
     }
 
     if(arr.size() == n){
