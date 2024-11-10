@@ -25,6 +25,10 @@ void solve() {
         else arr.push_back(a0);
     }
 
+    if(arr.size() == n){
+        cout << 0 << '\n';
+        return;
+    }
     int ans = 0;
     sort(all(arr));
     for(auto c : arr){
