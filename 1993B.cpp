@@ -36,7 +36,7 @@ void solve() {
         if(c < a) ans++, a += c;
         else{
             ans += 2;
-            a += c;
+            a += c * 2;
         }
     }
     cout << ans << '\n';
