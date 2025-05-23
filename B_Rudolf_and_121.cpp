@@ -23,16 +23,18 @@ void solve()
     for (int i = 1; i <= n - 2; i++)
     {
         arr[i] -= 2 * arr[i - 1];
-        arr[i - 1] = 0;
         arr[i + 1] -= arr[i - 1];
-
+        arr[i - 1] = 0;
         if (arr[i - 1] < 0 || arr[i] < 0 || arr[i + 1] < 0)
         {
             cout << "NO" << endl;
             return;
         }
     }
-    cout << "YES" << endl;
+    if (arr[n - 2] || arr[n - 1])
+        cout << "NO" << endl;
+    else
+        cout << "YES" << endl;
 }
 
 signed main()

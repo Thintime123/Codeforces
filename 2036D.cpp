@@ -52,7 +52,6 @@ void solve() {
             x = a, y = b;
         }
         n -= 2, m -= 2;
-
         c ++;
         string s1 = s.substr(1) + s[0];
         string s2 = s1.substr(1) + s1[0];

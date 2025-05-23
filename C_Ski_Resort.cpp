@@ -13,8 +13,6 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-//int T[N];
-
 int C(int n, int m)
 {
     double ans = 1;
@@ -30,10 +28,10 @@ int C(int n, int m)
 }
 void solve()
 {
-    //memset(T,0,sizeof T);
-    vector<int>T(N);
     int n, k, q;
     cin >> n >> k >> q;
+    vector<int> T(n + 2);
+
     fer(i, n) cin >> T[i];
 
     int ans = 0;
@@ -45,7 +43,10 @@ void solve()
             int c = 1;
             for (; j < n; j++)
             {
-                if(T[j]<=q) c++;
+                if (T[j] <= q)
+                    c++;
+                else
+                    break;
             }
             i = j;
             if (c >= k)

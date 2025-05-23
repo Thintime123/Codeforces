@@ -18,7 +18,7 @@ void solve()
 {
     int n, c, d;
     cin >> n >> c >> d;
-    unordered_map<int, int> mp;
+    map<int, int> mp;
 
     int mn = 1e9;
     fer(i, n * n)
@@ -28,29 +28,14 @@ void solve()
         mn = min(mn, a);
         mp[a]++;
     }
-    int *arr = new int[n];
-    for (int i = 1; i < n; i++)
+    int a = mn;
+    fer(i, n)
     {
-        if (mp[arr[0] + i * d])
+        fer(j, n)
         {
-            arr[i] = arr[0] + i * d;
-            mp[arr[i]]--;
-        }
-        else
-        {
-            cout << "NO" << endl;
-            return;
-        }
-    }
-
-    for (int i = 1; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            if (mp[arr[j] + c])
+            if (mp[a + c * i + d * j])
             {
-                arr[j] += c;
-                mp[arr[j]]--;
+                mp[a + c * i + d * j]--;
             }
             else
             {

@@ -15,43 +15,47 @@ const int N = 1e5 + 2;
 
 vector<int> p;
 
+bool is_ok(int n)
+{
+    if (n == 1)
+        return true;
+    bool f = true;
+    while (n)
+    {
+        if (n % 10 > 1)
+        {
+            f = false;
+            break;
+        }
+        n /= 10;
+    }
+    if (f)
+        return true;
+    return false;
+}
+
 void prework(vector<int> &p)
 {
-    fer(i, 10, N)
-    {
-        int cur = i;
-        bool f = true;
-        while (cur)
-        {
-            if (cur % 10 > 1)
-            {
-                f = false;
-                break;
-            }
-            cur /= 10;
-        }
-        if (f)
-            p.push_back(i);
-    }
+    fer(i, 10, N) if (is_ok(i)) p.push_back(i);
 }
+
 void solve()
 {
     int n;
     cin >> n;
     bool ok = false;
 
-    if(n == 1){puts("YES");return;}
-    fer(i, 0, p.size())
+    fer(i, 1, p.size()) // 注意开始下标
     {
-        if (n % p[i] == 0)
-        {
-            n /= p[i];
-            i --;
-        }
-        if (n == 1)
+        if (is_ok(n))
         {
             ok = true;
             break;
+        }
+        if (n % p[i] == 0)
+        {
+            n /= p[i];
+            i--;
         }
     }
     if (ok)

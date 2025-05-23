@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"Division 4\nDivision 4\nDivision 4\nDivision 4\nDivision 3\nDivision 2\nDivision 1"
+		],
+		"test": "7\n-789\n1299\n1300\n1399\n1400\n1679\n2300\n"
+	}
+]

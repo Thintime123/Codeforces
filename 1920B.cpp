@@ -21,7 +21,9 @@ void solve()
     int *s = new int[n + 1];
     s[0] = 0;
 
-    fer(i, 1, n + 1) cin >> arr[i], s[i] = s[i - 1] + arr[i];
+    fer(i, 1, n + 1) cin >> arr[i];
+    sort(all(arr));
+    fer(i, 1, n + 1) s[i] = s[i - 1] + arr[i];
 
     int ans;
     fer(i, 0, k + 1)

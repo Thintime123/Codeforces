@@ -20,8 +20,9 @@ void solve()
 
     vector<int> arr(n + 1);
     vector<int> sum(n + 1);
-    fer(i, 1, n + 1){
-        scanf("%lld", &arr[i]);
+    fer(i, 1, n + 1)
+    {
+        cin >> arr[i];
         sum[i] = sum[i - 1] + arr[i];
     }
     string s;
@@ -29,20 +30,16 @@ void solve()
     s = " " + s;
 
     int ans = 0;
-    int end = n;
-    fer(i, 1, n + 1)
+    int i = 1, j = n;
+    while (i < j)
     {
-        if (s[i] == 'R')
-            continue;
-
-        ferd(j, end, i)
-        {
-            if (s[j] == 'L')
-                continue;
+        while (i < j && s[i] != 'L')
+            i++;
+        while (i < j && s[j] != 'R')
+            j--;
+        if (i < j)
             ans += sum[j] - sum[i - 1];
-            end = j - 1;
-            break;
-        }
+        i++, j--;
     }
     cout << ans << '\n';
 }

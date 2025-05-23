@@ -27,7 +27,12 @@ signed main()
     fer(i, 1, n + 1)
         fer(j, 1, i + 1)
             cin >> arr[i][j];
-    fer(i, 1, n + 1) dp[i][1] = arr[i][1], dp[i][i] = arr[i][i];
+    
+    dp[1][1] = arr[1][1];
+    fer(i, 2, n + 1){
+        dp[i][1] = dp[i - 1][1] + arr[i][1];
+        dp[i][i] = dp[i - 1][i - 1] + arr[i][i];
+    }
 
     fer(i, 3, n + 1){
         fer(j, 2, i){
@@ -35,11 +40,6 @@ signed main()
         }
     }
     int ans = 0;
-    fer(i, 1, n + 1){
-        fer(j, 1, i + 1)
-            cout << dp[i][j] << ' ';
-        cout << endl;
-    }
     fer(i, 1, n + 1)
         ans = max(ans, dp[n][i]);
     cout << ans << endl;

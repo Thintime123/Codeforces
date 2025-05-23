@@ -32,7 +32,8 @@ void solve()
         }
         if (arr[i] > mx)
             mx = arr[i], q.push(mx), cnt = 1;
-        else if(arr[i] == mx){
+        else if (arr[i] == mx)
+        {
             q.push(mx);
             cnt++;
             cntmx = max(cntmx, cnt);
@@ -59,7 +60,7 @@ signed main()
 
 #ifdef LOCAL
     cout << "\nTime : ";
-    cout << (double)(clock() - start_time) * 1000 / CLOCKS_PER_SEC << "ms\n";
+    cout << (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000 << "ms\n";
 #endif
     return 0;
 }

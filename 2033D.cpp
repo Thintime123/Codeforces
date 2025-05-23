@@ -3,7 +3,7 @@
 using namespace std;
 
 #define ll long long
-// #define int ll
+#define int ll
 #define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define endl '\n'
@@ -25,32 +25,22 @@ void solve()
         s[i] = s[i - 1] + arr[i];
     }
 
-    fer(i, 1, n + 1) cout << s[i] << ' ';
-    cout << endl;
+    // fer(i, 1, n + 1) cout << s[i] << ' ';
+    // cout << endl;
 
     int ans = 0;
+    set<int> st;
+    st.insert(0);
     fer(i, 1, n + 1)
     {
-        if (arr[i] == 0)
+        if (st.count(s[i]))
         {
             ans++;
-            continue;
+            st.clear();
+            st.insert(s[i]);
         }
-        fer(j, i + 1, n + 1)
-        {
-            if (arr[j] == 0)
-            {
-                ans++;
-                i = j;
-                break;
-            }
-            if (s[j] - s[i - 1] == 0)
-            {
-                ans++;
-                i = j;
-                break;
-            }
-        }
+        else
+            st.insert(s[i]);
     }
     cout << ans << endl;
 }

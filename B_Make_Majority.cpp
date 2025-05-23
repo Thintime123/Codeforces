@@ -18,8 +18,8 @@ void solve()
     int n;
     string s;
     cin >> n >> s;
-    int c0 = 0,c1=0;
-    
+    int c0 = 0, c1 = 0;
+
     fer(i, s.size())
     {
         if (s[i] == '0')
@@ -32,13 +32,15 @@ void solve()
                 if (s[j] != '0' || j == s.size() - 1 && s[j] == '0')
                 {
                     c0++;
+                    if (s[j] == '1')
+                        c1++;
                     break;
                 }
-                else c1++;
             }
             i = j;
         }
-        else c1++;
+        else
+            c1++;
     }
     cout << (c1 > c0 ? "YES" : "NO") << endl;
 }

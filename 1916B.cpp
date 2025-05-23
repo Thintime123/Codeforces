@@ -13,9 +13,6 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-int gcd(int a, int b){
-    return b == 0 ? a : gcd(b, a % b);
-}
 
 void solve() {
     int a, b;
@@ -24,7 +21,7 @@ void solve() {
 
     int x;
     if(b % a == 0) x = b / a * b;
-    else x = a / gcd(a, b) * b;
+    else x = lcm(a, b);
     cout << x << '\n';
 }
 

@@ -22,9 +22,9 @@ void solve()
 {
     string s;
     cin >> s;
-    vector<pii> arr(s.size() + 2); //  下标 -> 余额
+    vector<pii> arr(s.size()); //  下标 -> 余额
     arr[0].first = 0, arr[0].second = 0;
-    for (int i = 0; i < s.size(); i++)
+    for (int i = 0; i < s.size() - 1; i++)
     {
         arr[i + 1].first = i + 1;
         if (s[i] == '(')
@@ -32,8 +32,8 @@ void solve()
         else
             arr[i + 1].second = arr[i].second - 1;
     }
-    for(int i=0;i<=s.size();i++)
-        cout<<arr[i].first<<' '<<arr[i].second<<endl;
+    // for (int i = 0; i < s.size(); i++)
+    //     cout << arr[i].first << ' ' << arr[i].second << endl;
 
     sort(all(arr), cmp);
     for (int i = 0; i < s.size(); i++)
@@ -47,7 +47,7 @@ signed main()
     cin.tie(0), cout.tie(0);
 
     int T = 1;
-    //cin >> T;
+    // cin >> T;
 
     while (T--)
     {

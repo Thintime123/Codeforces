@@ -3,7 +3,7 @@
 using namespace std;
 
 #define ll long long
-// #define int ll
+#define int ll
 #define pii pair<int, int>
 #define all(x) x.begin(), x.end()
 #define endl '\n'
@@ -13,7 +13,7 @@ using namespace std;
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 
-ll fpow(int a, int b, int p)
+ll fpow(ll a, ll b, int p)
 {
     a %= p;
     ll ans = 1;
@@ -32,12 +32,12 @@ void solve()
     int n;
     cin >> n;
     vector<int> arr(n + 1);
-    vector<int> s(n + 1);
+    vector<ll> s(n + 1);
     ferr(i, n) cin >> arr[i], s[i] = (s[i - 1] + arr[i]) % MOD;
 
     ll p = 0, q = n * (n - 1) / 2;
     for (int i = 1; i < n; i++)
-        p = (p + arr[i] * (s[n] - s[i]) % MOD) % MOD;
+        p = (p + arr[i] * (s[n] - s[i] + MOD) % MOD) % MOD;
     cout << p * fpow(q, MOD - 2, MOD) % MOD << endl;
 }
 

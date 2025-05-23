@@ -20,13 +20,19 @@ void solve()
     int d = 0;
     for (int i = 0; i < s.size() && i < t.size(); i++)
     {
-        if (s[i] != t[i])
+        if (s[i] == t[i])
         {
-            d = i;
-            break;
+            d = i + 1;
         }
+        else
+            break;
     }
-    
+    // cout<<"d="<<d<<endl;
+    if (d == 0)
+    {
+        cout << s.size() + t.size() << endl;
+        return;
+    }
     int ans = d + 1 + s.size() - d + t.size() - d;
     cout << ans << endl;
 }

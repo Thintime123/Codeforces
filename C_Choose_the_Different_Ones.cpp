@@ -50,25 +50,32 @@ void solve()
     // 说明都有
     for (int i = 1; i <= k; i++)
     {
-        if (mp1[i] == 0 && cnt2 > 0)
+        if (mp1[i] == 0)
         {
-            cnt2--;
-            continue;
+            if (cnt2 > 0)
+            {
+                cnt2--;
+                continue;
+            }
+            else
+            {
+                cout << "NO" << endl;
+                return;
+            }
         }
-        else
+
+        if (mp2[i] == 0)
         {
-            cout << "NO" << endl;
-            return;
-        }
-        if (mp2[i] == 0 && cnt1 > 0)
-        {
-            cnt1--;
-            continue;
-        }
-        else
-        {
-            cout << "NO" << endl;
-            return;
+            if (cnt1 > 0)
+            {
+                cnt1--;
+                continue;
+            }
+            else
+            {
+                cout << "NO" << endl;
+                return;
+            }
         }
         if (!mp1[i] && !mp2[i])
         {

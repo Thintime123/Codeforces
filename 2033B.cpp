@@ -17,7 +17,7 @@ void solve()
     int n;
     cin >> n;
     vector<vector<int>> arr(n, vector<int>(n));
-    //vector arr(n, vector<int>(n));
+    // vector arr(n, vector<int>(n));
     map<int, int> mp;
 
     fer(i, 0, n)

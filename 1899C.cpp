@@ -23,7 +23,7 @@ void solve()
     dp[0] = 0;
     fer(i, 1, n + 1) dp[i] = arr[i];
 
-    int ans = 1e-9;
+    int ans = -1e9;
     fer(i, 1, n + 1)
     {
         if ((arr[i] + arr[i - 1]) & 1)
