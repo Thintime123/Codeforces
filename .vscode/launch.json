@@ -7,7 +7,7 @@
       "request": "launch",
       "map": {
         "*.cpp": "C++(g++)",
-        "*.c": "C/C++(msvc)",
+        "*.c": "C(gcc)",
         "*.py": "Python",
         "*.java": "Java(compile)",
         "*.js": "Nodejs",
@@ -36,6 +36,8 @@
       }
     },
 
+    // MSVC配置在Linux上不需要，保留为注释
+    /*
     {
       "name": "C/C++(msvc)",
       "type": "cppvsdbg",
@@ -54,23 +56,25 @@
       "preLaunchTask": "C/C++编译(msvc)",
       "postDebugTask": "git提交"
     },
+    */
+
     {
       "name": "C++(g++)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb.exe",
+      "miDebuggerPath": "gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -84,25 +88,25 @@
         }
       ],
       "preLaunchTask": "C++编译(g++)",
-      "postDebugTask": "git提交"
+      //"postDebugTask": "git提交"
     },
     {
       "name": "C(gcc)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb.exe",
+      "miDebuggerPath": "gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -122,12 +126,12 @@
       "name": "C++(clang++)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "cwd": "${workspaceFolder}",
       "terminal": "integrated",
@@ -138,12 +142,12 @@
       "name": "C(clang)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "cwd": "${workspaceFolder}",
       "terminal": "integrated",
@@ -156,9 +160,9 @@
       "request": "launch",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "mainClass": "${fileBasenameNoExtension}",
       "postDebugTask": "git提交"
@@ -169,11 +173,11 @@
       "request": "launch",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
-      "mainClass": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.class",
+      "mainClass": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
       "preLaunchTask": "java编译",
       "postDebugTask": "git提交"
     },
@@ -185,9 +189,9 @@
       "python": "python",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "console": "integratedTerminal",
       "postDebugTask": "git提交"
@@ -200,24 +204,27 @@
       "python": "pypy",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "console": "integratedTerminal",
       "postDebugTask": "git提交"
     },
+
+    // .NET相关配置在Linux下可以注释掉，如果安装了.NET或Mono可以取消注释
+    /*
     {
       "name": "C#(dotnet)",
       "type": "coreclr",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}.exe",
       "justMyCode": true,
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
@@ -228,22 +235,8 @@
       "preLaunchTask": "C#编译(dotnet)",
       "postDebugTask": "git提交"
     },
-    // {
-    //   "name": "C#(mono)",
-    //   "type": "mono",
-    //   "request": "launch",
-    //   "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
-    //   "args": [
-    //     "<",
-    //     "${workspaceFolder}\\test\\in.txt",
-    //     ">",
-    //     "${workspaceFolder}\\test\\out.txt"
-    //   ],
-    //   "cwd": "${workspaceFolder}",
-    //   "console": "integratedTerminal",
-    //   "preLaunchTask": "C#编译(mono)",
-    //   "postDebugTask": "git提交"
-    // },
+    */
+
     {
       "name": "Nodejs",
       "type": "node",
@@ -252,9 +245,9 @@
       "console": "integratedTerminal",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "postDebugTask": "git提交"
     },
@@ -265,9 +258,9 @@
       "program": "${file}",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "cwd": "${workspaceFolder}",
       "port": 9003,
@@ -278,29 +271,27 @@
       "type": "go",
       "request": "launch",
       "mode": "auto",
-      //"program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
       "program": "${file}",
       "env": {},
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "showLog": true,
-      //"preLaunchTask": "Go编译",
       "postDebugTask": "git提交"
     },
     {
       "name": "Rust",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe",
+      "program": "${workspaceFolder}/bin/${fileBasenameNoExtension}",
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "preLaunchTask": "Rust编译",
       "postDebugTask": "git提交"
@@ -313,9 +304,9 @@
       "useTerminal": true,
       "args": [
         "<",
-        "${workspaceFolder}\\test\\in.txt",
+        "${workspaceFolder}/test/in.txt",
         ">",
-        "${workspaceFolder}\\test\\out.txt"
+        "${workspaceFolder}/test/out.txt"
       ],
       "cwd": "${workspaceFolder}",
       "postDebugTask": "git提交"

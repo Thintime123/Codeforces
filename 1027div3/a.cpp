@@ -17,20 +17,12 @@ const int inf = 1e9;
 void solve() {
     int n;
     cin >> n;
-    vector<int> arr(n);
-
-    fer(i, 0, n) cin >> arr[i];
-
-    int ind = 0, cnt = 0;
-    fer(i, 1, n) {
-        if(arr[i] > arr[ind] + 1) {
-            cnt++;
-            ind = i;
-        } else {
-            continue;
-        }
+    
+    if(int(sqrt(n)) * int(sqrt(n)) == n) {
+        cout << 0 << ' ' << int(sqrt(n)) << '\n';
+        return;
     }
-    cout << cnt + 1 << '\n';
+    cout << -1 << '\n';
 }
 
 signed main() {

@@ -8,37 +8,32 @@ using namespace std;
 #define all(x) x.begin(),x.end()
 #define fer(i, m, n) for(int i = m; i < n; ++i)
 #define ferd(i, m, n) for(int i = m; i >= n; --i)
-#define dbg(x) cout << #x << ' ' << char(61) << ' ' << x << '\n'
+#define dbg(x) cout << #x << ' ' << '=' << ' ' << x << '\n'
 
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 const int inf = 1e9;
 
-void solve() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-
-    fer(i, 0, n) cin >> arr[i];
-
-    int ind = 0, cnt = 0;
-    fer(i, 1, n) {
-        if(arr[i] > arr[ind] + 1) {
-            cnt++;
-            ind = i;
-        } else {
-            continue;
+int f(int n) {
+    int cnt = 0;
+    for(int i = 1; i <= n / i; ++i) {
+        if(n % i == 0) {
+            cnt += 2;
+            if(i * i == n) {
+                cnt--;
+            }
         }
     }
-    cout << cnt + 1 << '\n';
+    return cnt;
 }
 
 signed main() {
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
-    int T = 1;
-    cin >> T;
-    while(T--) solve();
-
+    int ans = 0;
+    fer(i, 1, 1e6 + 1) {
+        ans = max(ans, f(i));
+    }
+    cout << ans << '\n';
     return 0;
 }

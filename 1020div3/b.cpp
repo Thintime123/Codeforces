@@ -15,22 +15,16 @@ const int N = 2e5 + 2;
 const int inf = 1e9;
 
 void solve() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-
-    fer(i, 0, n) cin >> arr[i];
-
-    int ind = 0, cnt = 0;
-    fer(i, 1, n) {
-        if(arr[i] > arr[ind] + 1) {
-            cnt++;
-            ind = i;
-        } else {
-            continue;
-        }
+    int n, x;
+    cin >> n >> x;
+    if(x < n) {
+        fer(i, 0, x) cout << i << ' ';
+        fer(i, x + 1, n) cout << i << ' ';
+        cout << x << '\n';
+    } else {
+        fer(i, 0, n) cout << i << ' ';
+        cout << '\n';
     }
-    cout << cnt + 1 << '\n';
 }
 
 signed main() {

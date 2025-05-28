@@ -17,20 +17,14 @@ const int inf = 1e9;
 void solve() {
     int n;
     cin >> n;
-    vector<int> arr(n);
-
-    fer(i, 0, n) cin >> arr[i];
-
-    int ind = 0, cnt = 0;
-    fer(i, 1, n) {
-        if(arr[i] > arr[ind] + 1) {
-            cnt++;
-            ind = i;
-        } else {
-            continue;
-        }
+    string s;
+    cin >> s;
+    int a = 0, b = 0;
+    for(char c : s) {
+        if(c == '0') a++;
+        else b++;
     }
-    cout << cnt + 1 << '\n';
+    cout << a * (b + 1) + b * (b - 1) << '\n';
 }
 
 signed main() {

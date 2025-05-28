@@ -17,61 +17,31 @@ const int inf = 1e9;
 void solve() {
     int n;
     cin >> n;
-    vector<pii> arr(n);
-
-    vector<int> px(n), py(n);
+    vector<int> X(n), Y(n);
+    multiset<int> msx, msy;
     fer(i, 0, n) {
-        cin >> arr[i].first >> arr[i].second;
-        px[i] = arr[i].first, py[i] = arr[i].second;
+        cin >> X[i] >> Y[i];
+        msx.insert(X[i]);
+        msy.insert(Y[i]);
     }
-    sort(all(px)), sort(all(py));
-
-    int min_x = px[0], max_x = px[n - 1];
-    int min_y = py[0], max_y = py[n - 1];
-    int cxmin = 1, cxmax = 1, cymin = 1, cymax = 1;
-
-    fer(i, 1, n) {
-        if(px[i] == min_x) cxmin++;
-        else break;
-    }
-    ferd(i, n - 2, 0) {
-        if(px[i] == max_x) cxmax++;
-        else break;
-    }
-    fer(i, 1, n) {
-        if(py[i] == min_y) cymin++;
-        else break;
-    }
-    ferd(i, n - 2, 0) {
-        if(py[i] == max_y) cymax++;
-        else break;
-    }
-    ll ans = 1LL * (max_x - min_x + 1) * (max_y - min_y + 1);
-    ll res = ans;
 
     if(n == 1) {
-        cout << 0 << '\n';
-        return;
-    }
-    if(n == 2) {
         cout << 1 << '\n';
         return;
     }
-    if(cxmin == 1) {
-        res = 1LL * (max_x - px[1] + 1) * (max_y - min_y + 1);
-        ans = min(ans, res);
-    }
-    if(cxmax == 1) {
-        res = 1LL * (px[n - 2] - min_x + 1) * (max_y - min_y + 1);
-        ans = min(ans, res);
-    }
-    if(cymin == 1) {
-        res = 1LL * (max_x - min_x + 1) * (max_y - py[1] + 1);
-        ans = min(ans, res);
-    }
-    if(cymax == 1) {
-        res = 1LL * (max_x - min_x + 1) * (py[n - 2] - min_y + 1);
-        ans = min(ans, res);
+
+    int x_max = *msx.rbegin(), x_min = *msx.begin();
+    int y_max = *msy.rbegin(), y_min = *msy.begin();
+
+    ll ans = 1LL * (x_max - x_min + 1) * (y_max - y_min + 1);
+
+    fer(i, 0, n) {
+        msx.erase(msx.find(X[i])), msy.erase(msy.find(Y[i]));
+        x_max = *msx.rbegin(), x_min = *msx.begin();
+        y_max = *msy.rbegin(), y_min = *msy.begin();
+        ll cur = 1LL * (x_max - x_min + 1) * (y_max - y_min + 1);
+        ans = min(ans, cur + (cur == n - 1 ? min(x_max - x_min + 1, y_max - y_min + 1) : 0));
+        msx.insert(X[i]), msy.insert(Y[i]);
     }
     cout << ans << '\n';
 }

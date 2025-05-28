@@ -1,0 +1,1 @@
+{"name":"Local: a","url":"/home/thin-time/Code/Codeforces/1020div3/a.cpp","tests":[{"id":1748012114344,"input":"5\n3\n101\n1\n1\n5\n00000\n2\n11\n3\n010\n","output":"5\n0\n5\n2\n4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/thin-time/Code/Codeforces/1020div3/a.cpp","group":"local","local":true}
