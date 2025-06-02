@@ -1,86 +1,63 @@
-D. Come a Little Closer
+D. Gellyfish and Camellia Japonica
 
 time limit per test: 2 seconds
 
-memory limit per test: 256 megabytes
+memory limit per test: 512 megabytes
 
 input: standard input
 
 output: standard output
 
-The game field is a matrix of size $10^9 \times 10^9$, with a cell at the intersection of the $a$\-th row and the $b$\-th column denoted as ($a, b$).
+Gellyfish has an array of $n$ integers $c_1, c_2, \ldots, c_n$. In the beginning, $c = [a_1, a_2, \ldots, a_n]$.
 
-There are $n$ monsters on the game field, with the $i$\-th monster located in the cell ($x_i, y_i$), while the other cells are empty. No more than one monster can occupy a single cell.
+Gellyfish will make $q$ modifications to $c$.
 
-You can move one monster to any cell on the field that is not occupied by another monster **at most once** .
+For $i = 1,2,\ldots,q$, Gellyfish is given three integers $x_i$, $y_i$, and $z_i$ between $1$ and $n$. Then Gellyfish will set $c_{z_i} := \min(c_{x_i}, c_{y_i})$.
 
-After that, you must select **one** rectangle on the field; all monsters within the selected rectangle will be destroyed. You must pay $1$ coin for each cell in the selected rectangle.
+After the $q$ modifications, $c = [b_1, b_2, \ldots, b_n]$.
 
-Your task is to find the minimum number of coins required to destroy all the monsters.
+Now Flower knows the value of $b$ and the value of the integers $x_i$, $y_i$, and $z_i$ for all $1 \leq i \leq q$, but she doesn't know the value of $a$.
+
+Flower wants to find any possible value of the array $a$ or report that no such $a$ exists.
+
+If there are multiple possible values of the array $a$, you may output any of them.
 
 **Input**
 
-The first line contains a single integer $t$ ($1 \le t \le 10^4$) — the number of test cases.
+Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \le t \le 10^4$). The description of the test cases follows.
 
-The first line of each test case contains a single integer $n$ ($1 \le n \le 2 \cdot 10^5$) — the number of monsters on the field.
+The first line of each test case contains two integers $n$ and $q$ ($1 \leq n, q \leq 3 \cdot 10^5$) — the size of the array and the number of modifications.
 
-The following $n$ lines contain two integers $x_i$ and $y_i$ ($1 \le x_i, y_i \le 10^9$) — the coordinates of the cell with the $i$\-th monster. All pairs ($x_i, y_i$) are distinct.
+The second line of each test case contains $n$ integers $b_1, b_2, \ldots, b_n$ ($1 \leq b_i \leq 10^9$) — the value of the array $c$ after the $q$ modifications.
 
-It is guaranteed that the sum of $n$ across all test cases does not exceed $2 \cdot 10^5$.
+The following $q$ lines each contain three integers $x_i$, $y_i$, and $z_i$ ($1 \leq x_i, y_i, z_i \leq n$) — describing the $i$\-th modification.
+
+It is guaranteed that the sum of $n$ and the sum of $q$ over all test cases does not exceed $3 \cdot 10^5$.
 
 **Output**
 
-For each test case, output a single integer — the minimum cost to destroy all $n$ monsters.
+For each test case, if $a$ exists, output $n$ integers $a_1, a_2, \ldots, a_n$ ($0 \leq a_i \leq 10^9$) in a single line. Otherwise, output "-1" in a single line.
+
+If there are multiple solutions, print any of them.
 
 Example
 input
-7
 3
-1 1
-1 2
 2 1
-5
-1 1
-2 6
-6 4
-3 3
-8 2
-4
-1 1
-1 1000000000
-1000000000 1
-1000000000 1000000000
-1
-1 1
-5
 1 2
-4 2
-4 3
-3 1
+2 1 2
 3 2
-3
-1 1
-2 5
-2 2
-4
-4 3
-3 1
-4 4
-1 2
+1 2 3
+2 3 2
+1 2 1
+6 4
+1 2 2 3 4 5
+5 6 6
+4 5 5
+3 4 4
+2 3 3
 
 output
-3
-32
-1000000000000000000
-1
-6
-4
-8
-
-**Note**
-
-Below are examples of optimal moves, with the cells of the rectangle to be selected highlighted in green.
-
-![](https://espresso.codeforces.com/3643346ebf05ce082dc5c0fca832e3d393fb161e.png) Required move for the first example.
-
-![](https://espresso.codeforces.com/2988e85c1854410b7f39678ab9de43d27f5cf6bc.png) Required move for the fifth example.
+-1
+1 2 3 
+1 2 3 4 5 5 
