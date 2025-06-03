@@ -47,11 +47,11 @@ void solve() {
     }
 
     fer(i, 1, n + 1) {
-        ll a = (arr[prep[i].first] + arr[q[i - prep[i].second + 1]]) % MOD;
-        ll b = (arr[preq[i].first] + arr[p[i - preq[i].second + 1]]) % MOD;
-        
-        ll x = max(a, b);
-        cout << x << ' ';
+        pii p1 = {prep[i].first, q[i - prep[i].second + 1]};
+        pii p2 = {preq[i].first, p[i - preq[i].second + 1]};
+        if(p1 < p2) p1 = p2;
+        ll res = (arr[p1.first] + arr[p1.second]) % MOD;
+        cout << res << ' ';
     }
     cout << '\n';
 }

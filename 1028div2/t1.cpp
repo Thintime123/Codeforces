@@ -30,22 +30,9 @@ void solve() {
         cout << n - count(all(arr), g) << "\n";
         return;
     }
+    vector<int> dp(n + 1);
 
-    vector<int> dist(*max_element(all(arr)) + 1, INT_MAX);
-    queue<int> q;
-    for(int x : arr) q.push(x), dist[x] = 0;
-    while(!q.empty()) {
-        int u = q.front(); q.pop();
-        if(u == g) break;
-        for(int x : arr) {
-            int w = gcd(u, x);
-            if(dist[w] > dist[u] + 1) {
-                dist[w] = dist[u] + 1;
-                q.push(w);
-            }
-        }
-    }
-    cout << dist[g] + (n - 1) << '\n';
+
 }
 
 signed main() {
