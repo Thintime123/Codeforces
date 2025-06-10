@@ -2,3 +2,6 @@
 bin/
 temp/
 test/
+blank/
+.cph/
+test_case/
