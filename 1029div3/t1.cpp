@@ -9,26 +9,24 @@ using namespace std;
 #define all(x) x.begin(),x.end()
 #define fer(i, m, n) for(int i = m; i < n; ++i)
 #define ferd(i, m, n) for(int i = m; i >= n; --i)
-#define dbg(x) cout << #x << ' ' << char(61) << ' ' << x << '\n'
+#define dbg(x) cout << #x << ' ' << '=' << ' ' << x << '\n'
 
 const int MOD = 1e9 + 7;
 const int N = 2e5 + 2;
 const int inf = 1e9;
 
-void solve() {
-    int n;
-    cin >> n;
-    cout << 1 << ' ';
-    ferd(i, n, 2) cout << i << ' ';
-    cout << '\n';
-}
-
 signed main() {
     ios::sync_with_stdio(false); cin.tie(nullptr);
 
-    int T = 1;
-    cin >> T;
-    while(T--) solve();
-
+    auto fpow = [](int a, int b) -> int {
+        int res = 1;
+        while(b) {
+            if(b & 1) res = (res * a) % MOD;
+            a = (a * a) % MOD;
+            b >>= 1;
+        }
+        return res;
+    };
+    cout << fpow(2, 34);
     return 0;
 }
